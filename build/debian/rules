@@ -1,0 +1,11 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	qmake
+	$(MAKE)
+
+override_dh_auto_install:
+	$(MAKE) INSTALL_ROOT=$(CURDIR)/debian/redis-desktop-manager install
